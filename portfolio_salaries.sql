@@ -130,3 +130,43 @@ checked_out
 on books.book_id = checked_out.book_id
 where first_name = 'justin' and last_name = 'lee';
 
+-- query that returns the full names of everyone who has checkd out a book
+select distinct (concat (first_name,' ',last_name)) as full_name
+from checked_out;
+
+-- query that returns the department that makes most along with that departments total aggregate salary
+select department, sum(salary)
+from salaries
+group by department
+order by sum(salary) desc limit 1;
+
+-- query that returns the department with the highest salary along with that average salary
+select department, avg(salary)
+from salaries
+group by department
+order by avg(salary) desc limit 1;
+
+-- query that returns the name, department, and salary of each professor whois the highest earning in their department
+select professor_name, department, max(salary) as highest
+from salaries
+group by department;
+
+-- query that returns the name and salary of each professor who is either a top 3 or bottom 3 earner
+select professor_name, salary
+from salaries
+where salary>=(select distinct salary from salaries order by salary desc limit 1 offset 2)
+or salary <= (select distinct salary from salaries order by salary asc limit 1 offset 2);
+
+-- query that returns every department and the number of professors in each one
+select distinct department, count(professor_name)
+from salaries
+group by department
+order by count(professor_name) desc;
+
+-- query that returns the department with the most professors and that amount
+select distinct department, count(professor_name) as no_of_professors
+from salaries
+group by department
+order by count(professor_name) desc limit 1; 
+select distinct salary from salaries order by salary asc limit 1 offset 2;
+
