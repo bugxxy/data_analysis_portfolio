@@ -1,4 +1,4 @@
-Context
+/*Context
 
 This dataset contains 119390 observations for a City Hotel and a Resort Hotel. Each observation represents a hotel booking between the 1st of July 2015 and 31st of August 2017, including booking that effectively arrived and booking that were canceled.
 Content
@@ -8,7 +8,7 @@ Four Columns, 'name', 'email', 'phone number' and 'credit_card' have been artifi
 Acknowledgements
 
 The data is originally from the article Hotel Booking Demand Datasets, written by Nuno Antonio, Ana Almeida, and Luis Nunes for Data in Brief, Volume 22, February 2019.
-
+*/
 
 SELECT *
 FROM hotel_bookings_csv hbc ;
